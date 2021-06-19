@@ -48,7 +48,7 @@ function addMoreEl (){
 
 // Slider
 
-function changeSlide(direction,event) {
+function changeSlide(direction) {
     const sliderBtnList = document.querySelectorAll(".slider .slider-btn");
     const slideCount = sliderBtnList.length;  // получаю 4
     const activeSlideBtn = document.querySelector(".slider .slider-btn.active");
@@ -65,6 +65,7 @@ function changeSlide(direction,event) {
             updatedIndex =
                 slideIndex + 1 > slideCount ? 1 : slideIndex + 1;
             break;
+
     }
 
     activeSlideBtn.classList.remove("active");
@@ -75,11 +76,32 @@ function changeSlide(direction,event) {
 
 }
 
+function targetChangeImg (event){
+    document.querySelector(".slider-btn.active").classList.remove("active");
+    event.target.classList.add("active");
+    document.querySelector(".slide-content.active").classList.remove("active");
+    event.target.classList.add("active");
+
+    const currentIndex = event.target.dataset.index;
+    document.getElementById("slide-"+ currentIndex).classList.add("active");
+
+}
+
+
+
 document.querySelector(".btn-arrow.prev")
     .addEventListener("click" ,() => changeSlide("prev"));
 
 document.querySelector(".btn-arrow.next")
     .addEventListener("click" ,() =>changeSlide("next"));
+
+let elTarImg = document.querySelectorAll(".slider .slider-btn");
+for (let i = 0; i <= elBtnWork.length -1 ; i++){
+    let el = elTarImg[i];
+    el.addEventListener("click" ,targetChangeImg);
+}
+
+// document.querySelector(".slider-btn").addEventListener("click" ,targetChangeImg);
 
 
 // function clickBtnSlider(event) {

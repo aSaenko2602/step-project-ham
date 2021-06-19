@@ -454,12 +454,16 @@
 }
 .btn-arrow{
     background: rgba(0, 0, 0, 0.0001);
-    border: 1px solid #BBBBBB;
+    border: 1px solid #959595;
     color: #FFFFFF;
     width: 31px;
     height: 31px;
+    cursor: pointer;
+    font-weight: bold;
 }
-
+.btn-arrow:hover{
+    background: #18CFAB;
+}
 /*bottom*/
 
 .bottom{
